@@ -1,0 +1,25 @@
+version: 1
+send_anonymous_usage_stats: false
+project_id: ##########
+plugins:
+  extractors:
+  - name: tap-getabstract
+    namespace: tap_getabstract
+    executable: ./tap-getabstract.sh
+    capabilities:
+    - state
+    - catalog
+    - discover
+    config:
+      username: GETABSTRACTUSERNAME
+      password: GETABSTRACTPASSWORD
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+environments:
+- name: dev
+  config:
+    plugins:
+      extractors:
+      - name: tap-getabstract
