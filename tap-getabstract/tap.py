@@ -4,7 +4,7 @@ from typing import List
 from singer_sdk import Tap, Stream
 from singer_sdk import typing as th
 
-from tap_getabstract.streams import (
+from streams import (
     Summaries,
 )
 

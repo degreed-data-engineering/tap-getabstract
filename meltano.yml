@@ -11,8 +11,8 @@ plugins:
     - catalog
     - discover
     config:
-      client_id: GETABSTRACTCLIENTID
-      client_secret: GETABSTRACTCLIENTSECRET
+      client_id: libraryapi-client-degreed-demo
+      client_secret: EBA4F7D7B76E2D864E9A
       language: en
       active_only: true
       page_size: 50

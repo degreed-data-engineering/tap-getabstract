@@ -26,7 +26,7 @@ class GetabstractOAuthAuthenticator(OAuthAuthenticator):
         }
 
 
-class MyHATEOASPaginator(BaseHATEOASPaginator):
+class CustomHATEOASPaginator(BaseHATEOASPaginator):
     """
     Link 1: https://sdk.meltano.com/en/latest/classes/singer_sdk.pagination.BaseHATEOASPaginator.html
     Link 2: https://sdk.meltano.com/en/latest/guides/pagination-classes.html#example-hateoas-pagination-a-k-a-next-links
@@ -48,7 +48,7 @@ class TapGetabstractStream(RESTStream):
     url_base = "https://www.getabstract.com/api"
 
     def get_new_paginator(self):
-        return MyHATEOASPaginator()
+        return CustomHATEOASPaginator()
 
     def get_url_params(
         self, context: Optional[dict], next_page_token: Optional[Any]
@@ -74,5 +74,8 @@ class Summaries(TapGetabstractStream):
     name = "summaries"  # Stream name
     path = "/library/v2/summaries"  # API endpoint after base_url
     primary_keys = ["id"]
+    records_jsonpath = "$.items[*]"  # https://jsonpath.com Use requests response json to identify the json path
 
-    schema = th.PropertiesList().to_dict()
+    schema = th.PropertiesList(
+        th.Property("id", th.IntegerType),
+    ).to_dict()
