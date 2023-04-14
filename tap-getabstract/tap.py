@@ -1,20 +1,17 @@
 """getabstract tap class."""
 
-from pathlib import Path
 from typing import List
-import logging
-import click
 from singer_sdk import Tap, Stream
 from singer_sdk import typing as th
 
 from tap_getabstract.streams import (
-    HumanResources,
+    Summaries,
 )
 
 PLUGIN_NAME = "tap-getabstract"
 
 STREAM_TYPES = [
-    HumanResources,
+    Summaries,
 ]
 
 
@@ -23,8 +20,18 @@ class TapGetabstract(Tap):
 
     name = "tap-getabstract"
     config_jsonschema = th.PropertiesList(
-        th.Property("username", th.StringType, required=False, description="username"),
-        th.Property("password", th.StringType, required=False, description="password"),
+        th.Property("client_id", th.StringType, required=True, description="Client ID"),
+        th.Property(
+            "client_secret", th.StringType, required=True, description="Client Secret"
+        ),
+        th.Property("language", th.StringType, required=True, description="Language"),
+        th.Property(
+            "active_only",
+            th.StringType,
+            required=True,
+            description="Only active records",
+        ),
+        th.Property("page_size", th.StringType, required=True, description="Page size"),
     ).to_dict()
 
     def discover_streams(self) -> List[Stream]:
