@@ -11,8 +11,11 @@ plugins:
     - catalog
     - discover
     config:
-      username: GETABSTRACTUSERNAME
-      password: GETABSTRACTPASSWORD
+      client_id: GETABSTRACTCLIENTID
+      client_secret: GETABSTRACTCLIENTSECRET
+      language: en
+      active_only: true
+      page_size: 50
   loaders:
   - name: target-jsonl
     variant: andyh1203
