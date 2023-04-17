@@ -4,7 +4,7 @@ project_id: 4935d052-aee1-46fa-89f0-a94cdc080064
 plugins:
   extractors:
   - name: tap-getabstract
-    namespace: tap_getabstract
+    namespace: tap-getabstract
     executable: ./tap-getabstract.sh
     capabilities:
     - state
