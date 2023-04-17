@@ -11,7 +11,7 @@ from singer_sdk.pagination import BaseHATEOASPaginator
 
 logging.basicConfig(level=logging.INFO)
 
-SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
+# SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
 class GetabstractOAuthAuthenticator(OAuthAuthenticator):
