@@ -77,5 +77,18 @@ class Summaries(TapGetabstractStream):
     records_jsonpath = "$.items[*]"  # https://jsonpath.com Use requests response json to identify the json path
 
     schema = th.PropertiesList(
+        th.Property("author", th.StringType),
+        th.Property("channels", th.StringType),
+        th.Property("coverUrl", th.StringType),
+        th.Property("duration", th.StringType),
         th.Property("id", th.IntegerType),
+        th.Property("introHtml", th.StringType),
+        th.Property("source",
+                    th.ObjectType(
+                        th.Property("pages", th.IntegerType)
+                        )
+        ),
+        th.Property("title", th.StringType),
+        th.Property("type", th.StringType),
+        th.Property("url", th.StringType),
     ).to_dict()

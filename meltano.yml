@@ -11,9 +11,9 @@ plugins:
     - catalog
     - discover
     config:
-      client_id: libraryapi-client-degreed-demo
-      client_secret: EBA4F7D7B76E2D864E9A
-      language: en
+      client_id: CLIENT-ID
+      client_secret: CLIENT-SECRET
+      language: LANGUAGE
       active_only: true
       page_size: 50
   loaders:

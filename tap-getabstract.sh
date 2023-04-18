@@ -10,5 +10,5 @@ STARTDIR=$(pwd)
 TOML_DIR=$(dirname "$0")
 
 cd "$TOML_DIR" || exit
-"/Users/giovanni/Library/Application Support/pypoetry/venv/bin/poetry" install 1>&2
-"/Users/giovanni/Library/Application Support/pypoetry/venv/bin/poetry" run tap-getabstract $*
+poetry install 1>&2
+poetry run tap-getabstract --config=config.json $*
