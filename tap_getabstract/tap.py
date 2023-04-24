@@ -27,11 +27,13 @@ class TapGetabstract(Tap):
         th.Property("language", th.StringType, required=True, description="Language"),
         th.Property(
             "active_only",
-            th.StringType,
+            th.BooleanType,
             required=True,
             description="Only active records",
         ),
-        th.Property("page_size", th.StringType, required=True, description="Page size"),
+        th.Property(
+            "page_size", th.IntegerType, required=True, description="Page size"
+        ),
     ).to_dict()
 
     def discover_streams(self) -> List[Stream]:
